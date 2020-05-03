@@ -1,0 +1,275 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  background-color: #143b5a;
+  box-sizing: border-box;
+}
+
+.App{
+  display: flex;
+}
+
+.sideBar{
+  background-color: #094474;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 100;
+}
+
+
+input{
+  width: 130px;
+  margin: 0 auto 1rem auto;
+  background-color: #0563af;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  padding: 10px;
+}
+input::placeholder{
+  color: #ccc
+}
+
+button,.button{
+  width: 150px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  display: block;
+  background-color: #0563af;
+  border: none;
+  padding: 1rem .5rem;
+  color: white;
+  transition: .1s linear all;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+button:hover{
+  cursor: pointer;
+  background-color: #0a74ca;
+}
+
+.three{
+  overflow: hidden;
+}
+
+button.active{
+  background-color: #3694df;
+}
+
+.sideBar form{
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hexagonArea{
+  position: relative;
+  margin-left: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hexText{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateZ(-90deg) ;
+  text-align: center;
+  color: white;
+  user-select: none;
+  font-size: 2rem;
+}
+.hexagon {
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background: #3694df;
+  margin: 30px auto;
+  transform: rotate(90deg);
+}
+.hexagon::before,
+.hexagon::after {
+  content: "";
+  position: absolute;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  z-index: -1;
+}
+.hexagon::before {
+  bottom: 100%;
+  border-bottom: 30px solid #3694df;
+}
+.hexagon::after {
+  top: 100%;
+  border-top: 30px solid #3694df;
+}
+
+.arrow{
+  position: relative;
+}
+
+.arrow::before{
+  content: "↑";
+  position: absolute;
+  top: -100%;
+  left: 0;
+}
+
+.arrow-1::before{
+  transform-origin: 64% 164%;
+  transform: rotate(56deg);
+}
+
+.arrow-2::before{
+  transform-origin: 59% 154%;
+transform: rotate(118deg);
+}
+
+.arrow-3::before{
+  top: 100%;
+  transform: rotate(180deg);
+}
+
+.arrow-4::before{
+  transform-origin: 43% 153%;
+  transform: rotate(239deg);
+}
+
+.arrow-5::before{
+  transform-origin: 43% 153%;
+  transform: rotate(302deg);
+}
+
+.box{
+  margin: 1rem;
+  position: relative;
+}
+
+.box select {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 150px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before {
+  content: "";
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+.textArea{
+  margin-left: 180px;
+  color: white;
+  font-size: 1.2rem;
+  width: 300px;
+  padding-left: 10px;
+  background-color: #10212e;
+  height: 100vh;
+  overflow-y: scroll;
+  position: fixed;
+  left: 0px;
+  z-index: 99;
+}
+
+.wrapper{
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+}
+
+.levels{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 700px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.level__buttons{
+  display: flex;
+}
+
+.level__buttons button{
+  width: 75px;
+  font-size: 1rem;
+  margin: .1rem;
+  padding: .5rem .4rem;
+}
+
+.info{
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.level{
+  padding: 1rem;
+  margin: .5rem;
+  background: rgba(0,0,0,0.4);
+}
+
+.idText{
+  user-select: none;
+  position: absolute;
+  top: 20px;
+  left: 13px;
+  font-size: 1.2rem;
+  color: #1e1788;
+  transform: rotate(270deg);
+  z-index: 2;
+}
+
+.typeText{
+  user-select: none;
+  position: absolute;
+  top: 23px;
+  left: 56px;
+  z-index: 2;
+  font-size: .8rem;
+  color: #1e1788;
+  transform: rotate(270deg);
+}
