@@ -5,7 +5,9 @@ var db = require('./db')
 
 app.use(express.json({ extended: false }))
 app.use('/', express.static(path.join(__dirname, 'client', 'build')))
-
+app.use('/model/tris.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'src', 'components', 'three', 'classes', 'Player', 'model', 'tris.js'))
+})
 
 app.post('/api/addlevel', (req, res) => {
   try {

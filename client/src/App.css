@@ -42,7 +42,7 @@ button,.button{
   display: block;
   background-color: #0563af;
   border: none;
-  padding: 1rem .5rem;
+  padding: .5rem .5rem;
   color: white;
   transition: .1s linear all;
   margin-bottom: 1rem;
@@ -272,4 +272,10 @@ transform: rotate(118deg);
   font-size: .8rem;
   color: #1e1788;
   transform: rotate(270deg);
+}
+
+.link{
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  border-bottom: 5px solid black;
 }

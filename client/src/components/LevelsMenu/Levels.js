@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { LevelContext } from '../levelContext/LevelContext'
+import { LevelContext } from '../../levelContext/LevelContext'
 import Level from './Level'
 
 const Levels = props => {

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LevelContext } from '../levelContext/LevelContext'
+import { LevelContext } from '../../levelContext/LevelContext'
 import Hexagon from './Hexagon'
 
 const HexagonArea = () => {

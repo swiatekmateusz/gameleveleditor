@@ -11,7 +11,7 @@ export const LevelState = props => {
     deep: 3,
     levelObject: [{ "id": 0, "x": 0, "y": 0, "dirIn": null, "dirOut": null }, { "id": 1, "x": 1, "y": 0, "dirIn": null, "dirOut": null }, { "id": 2, "x": 2, "y": 0, "dirIn": null, "dirOut": null }, { "id": 3, "x": 0, "y": 1, "dirIn": null, "dirOut": null }, { "id": 4, "x": 1, "y": 1, "dirIn": null, "dirOut": null }, { "id": 5, "x": 2, "y": 1, "dirIn": null, "dirOut": null }, { "id": 6, "x": 0, "y": 2, "dirIn": null, "dirOut": null }, { "id": 7, "x": 1, "y": 2, "dirIn": null, "dirOut": null }, { "id": 8, "x": 2, "y": 2, "dirIn": null, "dirOut": null }],
     message: null,
-    actualType: "WALLS",
+    actualType: "LIGHT",
     isFromAxios: false,
     name: null,
     levels: [],

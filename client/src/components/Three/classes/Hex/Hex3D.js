@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import Doors from './Doors'
-import settings from '../../settings'
-import Light from './Things/Light'
-import Treasure from './Things/Treasure'
+import settings from '../../../../settings'
+import Light from '../Things/Light'
+import Treasure from '../Things/Treasure'
 
 class Hex3D {
 
@@ -12,9 +12,8 @@ class Hex3D {
 
     var container = new THREE.Object3D()
     container.position.y = radius / (12 / 2)
-
+    container.add(new Light())
     var geometry = new THREE.BoxGeometry(radius * 1.2, radius, radius / 10);
-    //var material = new THREE.MeshPhongMaterial({ color: 0x2f95c9, emissive: 0x000000 });
     var wall = new THREE.Mesh(geometry, settings.wallMaterial);
     wall.position.y = radius / (12 / 2)
     for (var i = 0; i < 6; i++) {
@@ -36,7 +35,7 @@ class Hex3D {
     let feature
     switch (type) {
       case "LIGHT":
-        feature = new Light(plane)
+        feature = new Light(.75)
         break;
       case "TREASURE":
         feature = new Treasure()

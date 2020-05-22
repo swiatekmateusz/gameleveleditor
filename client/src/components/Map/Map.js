@@ -1,20 +1,22 @@
 import React, { useEffect, useContext } from 'react';
-import { LevelContext } from '../levelContext/LevelContext'
+import { LevelContext } from '../../levelContext/LevelContext'
 import * as THREE from "three";
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import Level3D from './Three/Level3D'
+//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import Level3D from '../Three/Level3D'
+import Player from '../Three/classes/Player/Player'
+import settings from '../../settings'
 
 const Map = () => {
   const levelContext = useContext(LevelContext)
   const { returnObject } = levelContext
   const level = returnObject()
-  console.log(level.level)
+
   level.level.sort((a, b) => {
     if (a.hexId > b.hexId) return 1
     else return -1
   })
-  console.log(level)
 
+  let renderFlag = true
   useEffect(() => {
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(
@@ -29,26 +31,30 @@ const Map = () => {
     document.querySelector('.map').appendChild(renderer.domElement);
     camera.position.set(200, 200, 200)
     camera.lookAt(scene.position);
-    var orbitControl = new OrbitControls(camera, renderer.domElement);
-    orbitControl.addEventListener('change', function () {
-      renderer.render(scene, camera)
-    });
-    var axes = new THREE.AxesHelper(1000)
-    scene.add(axes)
-    console.log(axes)
     const level3d = new Level3D(level.size, level.level)
-    console.log(level3d)
+    var geometry = new THREE.PlaneGeometry(level3d.info.width, level3d.info.height, 32, 32);
+    var material = new THREE.MeshBasicMaterial({ color: 0x2194ce, side: THREE.DoubleSide, transparent: true, opacity: 0 });
+    var plane = new THREE.Mesh(geometry, material);
+    plane.rotation.x = Math.PI / 2;
+    plane.position.z = level3d.info.z;
+    plane.position.y = level3d.position.y + settings.radius / 15
+    scene.add(plane);
     scene.add(level3d)
-
-    // var light = new THREE.DirectionalLight(0xffffff);
-    // light.position.set(0, 1, 1).normalize();
-    // scene.add(light);
-
+    const player = new Player(camera, scene, true, false, level3d.info.playerX, plane.position.y, level3d.info.playerZ)
+    scene.add(player.getPlayerCont())
+    var clock = new THREE.Clock();
     function render() {
-      requestAnimationFrame(render);
-      renderer.render(scene, camera);
+      console.log("redner")
+      if (renderFlag) {
+        player.renderMove(clock)
+        requestAnimationFrame(render);
+        renderer.render(scene, camera);
+      }
     }
     render();
+    return () => {
+      renderFlag = false
+    }
     // eslint-disable-next-line
   }, []);
   return (

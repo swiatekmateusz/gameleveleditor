@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import './App.css';
-import SideBar from './components/SideBar'
-import HexagonArea from './components/HexagonArea'
-import TextObject from './components/TextObject'
+import SideBar from './components/Sidebar/SideBar'
+import HexagonArea from './components/Hexagon/HexagonArea'
+import Movement from './components/Map/Movement'
+import TextObject from './components/Sidebar/TextObject'
 import { LevelContext } from './levelContext/LevelContext'
-import Three from './components/Three'
-import Map from './components/Map'
+import HexThree from './components/Map/HexThree'
+import Map from './components/Map/Map'
 import {
   Switch,
   BrowserRouter as Router,
@@ -43,10 +44,13 @@ const App = () => {
           <HexagonArea></HexagonArea>
         </Route>
         <Route path="/hex" exact>
-          <Three></Three>
+          <HexThree></HexThree>
         </Route>
         <Route path="/map" exact>
           <Map></Map>
+        </Route>
+        <Route path="/movement" exact>
+          <Movement></Movement>
         </Route>
       </Switch>
     </Router>

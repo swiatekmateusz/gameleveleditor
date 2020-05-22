@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import * as THREE from "three";
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import Hex3D from './Three/Hex3D'
+import OrbitControls from 'orbit-controls-es6';
+import Hex3D from '../Three/classes/Hex/Hex3D'
 
-const Three = () => {
+const HexThree = () => {
   useEffect(() => {
 
     var scene = new THREE.Scene();
@@ -27,8 +27,11 @@ const Three = () => {
     // var axes = new THREE.AxesHelper(1000)
     // scene.add(axes)
 
-    var orbitControl = new OrbitControls(camera, renderer.domElement);
-    orbitControl.addEventListener('change', function () {
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enabled = true;
+    controls.maxDistance = 1500;
+    controls.minDistance = 0;
+    controls.addEventListener('change', function () {
       renderer.render(scene, camera)
     });
 
@@ -65,4 +68,4 @@ const Three = () => {
   );
 }
 
-export default Three;
+export default HexThree;

@@ -4,9 +4,9 @@ import treasureMaterial from './mats/test2.jpg'
 
 
 export default {
-  radius: 200,
+  radius: 100,
   wallMaterial: new THREE.MeshPhongMaterial({
-    color: 0xbbbbbb,
+    color: 0xffffff,
     specular: 0xbbbbbb,
     shininess: 5,
     side: THREE.DoubleSide,
@@ -19,5 +19,6 @@ export default {
     side: THREE.DoubleSide,
     map: new THREE.TextureLoader().load(treasureMaterial),
   }),
-  lightColor: 0xc01e1e,
+  lightColor: 0xffffff,
+  playerSpeed: 4,
 }

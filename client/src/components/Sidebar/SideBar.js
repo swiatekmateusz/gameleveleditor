@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { LevelContext } from '../levelContext/LevelContext'
+import { LevelContext } from '../../levelContext/LevelContext'
 import Types from './Types'
-import Levels from './Levels'
+import Levels from '../LevelsMenu/Levels'
 import { Link } from 'react-router-dom'
 
 const maxDeep = 14
@@ -51,8 +51,9 @@ const SideBar = () => {
         </form>
         <button onClick={clearLevel}>Wyczyść plansze</button>
         <button onClick={() => setOverlay(!overlay)}>Zobacz Levele</button>
-        <Link to="/map" className="button">Zobacz Mapę</Link>
-        <Link to="/hex" className="button">Zobacz Hex</Link>
+        <Link to="/map" className="button link">Zobacz Mapę</Link>
+        <Link to="/hex" className="button link">Zobacz Hex</Link>
+        <Link to="/movement" className="button link">Zobacz Movement</Link>
         <Types />
         <h3>{level.message}</h3>
       </div >

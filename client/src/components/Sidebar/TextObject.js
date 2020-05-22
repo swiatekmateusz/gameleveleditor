@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LevelContext } from '../levelContext/LevelContext'
+import { LevelContext } from '../../levelContext/LevelContext'
 
 const TextObject = () => {
   const levelContext = useContext(LevelContext)
